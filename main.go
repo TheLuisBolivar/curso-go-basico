@@ -2,22 +2,32 @@ package main
 
 import "fmt"
 
-//go run main.go
+type Vertex struct {
+	I    int
+	Y    int
+	Name string
+}
+
+type Person struct {
+	Name, Lastname string
+	Id             int
+}
+
+var (
+	mono    = Person{"Luis", "Bolivar", 1023}
+	juancho = Person{"Juan", "Bolivar", 12312}
+)
+
 func main() {
-	i, j, x := 5, "hello", true
+	vertex := Vertex{1, 2, "name"}
+	fmt.Printf("Esta es mi primer estructura: Vertex structs: %T, %v", vertex, vertex)
 
-	p := &i
-	fmt.Printf("p is: %T and his value is: %v \n", *p, *p)
-	*p = 100
-	fmt.Printf("cambie el valor de i por medio de derefenciacion del puntero p: %T %v \n", i, i)
+	p := &vertex
+	p.Name = "Nuevo nombre!"
+	fmt.Printf("Revisando mi puntero p :D --> %T %v", p, p)
 
-	m := &j
-	fmt.Printf("m is: %T and his value is: %v \n", *m, *m)
-	*m = "world"
-	fmt.Printf("cambie el valor de j por medio de derefenciacion del puntero m: %T %v \n", j, j)
+	e := vertex.Name
+	fmt.Printf("estoy revisando e %T %v", e, e)
 
-	n := &x
-	fmt.Printf("n is: %T and his value is: %v \n", *n, *n)
-	*n = false
-	fmt.Printf("cambie el valor de x por medio de derefenciacion del puntero n: %T %v \n", x, x)
+	fmt.Println(mono.Id, juancho)
 }
